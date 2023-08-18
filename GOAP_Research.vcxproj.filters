@@ -18,5 +18,28 @@
     <ClCompile Include="GOAP_Research.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GOAP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Purpose.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GOAP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Purpose.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Consequences.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
