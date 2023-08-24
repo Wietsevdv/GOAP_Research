@@ -21,9 +21,11 @@ be loaded (precondition). Assuming the enemy is already in sight the actionPath 
 The main idea of GOAP is simple. The biggest problem for implementation is how do we define these "Goals, Preconditions and Consequences" that give meaning to actions.
 
 Consequences:
+
 My current idea is to use one huge enumeration in which each consequence is written. These would also be used as "Goals" and as "Preconditions" since that is actually "the same". (a goal or precondition can be viewed as another actions consequence)
 Allowing "Goals, Preconditions and Consequences" to be from the same enumeration makes the code already easier. But there still remains a question in my head: what if a consequence requires more context?
 
 Purpose:
+
 Another difficult part is what goal is the AI given? Does it just have 1 goal that it keeps trying to fulfill? What if it's goal is more complex? Like surviving, which would require it to check multiple things and choose a current consequence which needs to happen.
 For this I was thinking to use a class called "Purpose" which could also be named "Brain" or "DecisionMaker". This class will check multiple stats on the character and depending on the current state decide a consequence to send to the GOAP to find an actionPath for.
