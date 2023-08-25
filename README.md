@@ -8,12 +8,12 @@ no need to "go over all connections" like with FSM to check whether everything s
 
 For the player the biggest difference GOAP could make is a much more "intelligent" CPU opponent that makes more logical decisions.
 
-# What is GOAP?
-GOAP is about is giving the AI a 'Goal or Purpose' & 'Actions' which it can perform. Action can have 'Preconditions' and will always have atleast 1 'Consequence'.
+# My approach to GOAP
+My GOAP is about giving the AI a 'Goal or Purpose' and 'Actions' which it can perform. Action can have 'Preconditions' and will always have atleast 1 'Consequence'.
 The AI creates a path of actions to satisfy its goal. This path is created by looking at the actions consequences and preconditions. Making sure each action
 can be performed by finding other actions that satisfy its precondition. (last actions consequence == goal)
 
-###Example:
+### Example:
 AI needs to kill enemy (Goal). It can use Shoot for this since it has consequence 'EnemyDies' (action). But this action requires his gun to
 be loaded (precondition). Assuming the enemy is already in sight the actionPath becomes: ReloadGun() -> Shoot()
 
@@ -27,3 +27,18 @@ Allowing "Goals, Preconditions and Consequences" to be from the same enumeration
 ### Purpose:
 Another difficult part is what goal is the AI given? Does it just have 1 goal that it keeps trying to fulfill? What if it's goal is more complex? Like surviving, which would require it to check multiple things and choose a current consequence which needs to happen.
 For this I was thinking to use a class called "Purpose" which could also be named "Brain" or "DecisionMaker". This class will check multiple stats on the character and depending on the current state decide a consequence to send to the GOAP to find an actionPath for.
+
+### Context:
+My main problem with using the 'Consequence' enumeration is that to make it work without anything else it would require an enormous enumeration. eg) Have10Coins, Have150Coins, Have1000Coins... You see where this is going. A solution could be a more general consequences enumeration and use them with context through a void pointer or template. eg) HaveCoins, Context = 100.  AimAtEnemy, Context = enemy5...
+But I see another problem with this. I'll explain through example:
+
+take character c1. c1 needs to chop a tree. This requires c1 to match consequence "ObtainAxe" Context = 1. This means GOAP needs to check this precondition on c1. GOAP would need to ask c1 if he has 1 axe. Code wise this requires some "GetNrOfAxes(), HasAxes(1)..." kind of function.
+
+This becomes a problem when you have many consequences. Each consequence would need some code to get values & compare them. Though I can't think of a better solution right now so I'll be using this method.
+
+## Other approach:
+Let preconditions and consequences be a pair: a pointer to some data & value that data should have. (Each is its own pair) (Consequence enumeration wouldn't exist anymore)
+The pointers are stuck to a specific peace of data of the character. This means actions can not be static anymore and must be instanced.
+example:
+c1 is given an action "ChopTree" this action takes c1 and takes a pointer to where c1 would store axeData. When this action is used the precondition states that his axe data must be valid.
+This approach also has problems such as instanced actions and the pointer data and comparing it will also not be easy
