@@ -42,3 +42,6 @@ The pointers are stuck to a specific peace of data of the character. This means 
 example:
 c1 is given an action "ChopTree" this action takes c1 and takes a pointer to where c1 would store axeData. When this action is used the precondition states that his axe data must be valid.
 This approach also has problems such as instanced actions and the pointer data and comparing it will also not be easy
+
+## Trouble
+Today I should finish this research. But I have come to realize that using static actions & purpose might not be good. I need to carry data over to both preconditions & actions to chain them execute them properly
