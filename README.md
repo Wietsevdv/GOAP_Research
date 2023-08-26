@@ -49,3 +49,7 @@ Today I should finish this research. But I have come to realize that using stati
 I have a new base idea which I will be implementing. I am taking a "completely" other approach/perspective this time. The AI itself will be a class that contains a character and a GOAP (actions, preconditions, consequences, path of action creation). The AI class will than be responsible for checking the world and itself. And then choosing which action it wants to do. It then passes this action and extra data for context to the GOAP so it can create a path of action for the brain to follow. I will make the brain store the actionPath (vector reference to GOAP)
 
 Brain will be capable of checkings stats and deciding what action it wants to do and asks GOAP to make a path. This means brain needs to be able to check preconditions. It would be handy if GOAP has access to the brains precondition checking function. Make the brain pass a function pointer to the GOAP at creation. This function takes a consequence (precondition) (and maybe data?)
+
+The GOAP needs context for preconditions to work. The question is how do I give it context? Some context will be "permanent" while others could be "changing". Example:
+AI wants to chop a tree. Precondition = ObtainAxe, context will always just be 1. Other precondition = HaveLocation, context is wherever a tree is, after chopping another one must be chosen.                    How do I give the GOAP access to this context so it can ask the brain if the precondition is satisfied? I will expand the action class. It will hold 
+
