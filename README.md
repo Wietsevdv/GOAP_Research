@@ -45,3 +45,5 @@ This approach also has problems such as instanced actions and the pointer data a
 
 ## Trouble
 Today I should finish this research. But I have come to realize that using static actions & purpose might not be good. I need to carry data over to both preconditions & actions to chain them execute them properly
+### new base idea
+I have a new base idea which I will be implementing. I am taking a "completely" other approach/perspective this time. The AI itself will be a class that contains a character and a GOAP (actions, preconditions, consequences, path of action creation). The AI class will than be responsible for checking the world and itself. And then choosing which action it wants to do. It then passes this action and extra data for context to the GOAP so it can create a path of action for the brain to follow. I will make the brain store the actionPath (vector reference to GOAP)
