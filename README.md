@@ -1,7 +1,7 @@
 # GOAP_Research
 My research for gameplay programming (Goal Oriented Action Planning)
 
-Goal-Oriented-Action-Planning or GOAP is a program which like Finite-State-Machines and Behaviour-Trees tells an AI character what to do: run to point A, Shoot enemy... .
+Goal-Oriented-Action-Planning or GOAP is a program which like Finite-State-Machines and Behaviour-Trees tells an AI character what to do like: run to point A, Shoot enemy... .
 
 For the developer the biggest difference for GOAP is that is it much easier to add, remove or change actions. Since actions are independant from each other there is
 no need to "go over all connections" like with FSM to check whether everything still flows correctly. (states have transitions that could break, actions do not).
