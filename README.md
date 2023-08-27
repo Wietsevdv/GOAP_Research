@@ -21,7 +21,7 @@ be loaded (precondition). Assuming the enemy is already in sight the actionPath 
 The main idea of GOAP is simple. The biggest problem for implementation is how do we define these "Goals, Preconditions and Consequences" that give meaning to actions.
 
 ### Consequences:
-My current idea is to use one huge enumeration in which each consequence is written. These would also be used as "Goals" and as "Preconditions" since that is actually "the same". (a goal or precondition can be viewed as another actions consequence)
+My current idea is to use one huge enumeration in which each consequence is written. These would also be used as "Goals" and as "Preconditions" since those are kind of the same. A goal or precondition can be viewed as an actions consequence.
 Allowing "Goals, Preconditions and Consequences" to be from the same enumeration makes the code already easier. But there still remains a question in my head: what if a consequence requires more context?
 
 ### Purpose:
