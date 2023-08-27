@@ -41,3 +41,6 @@ Brain will be capable of checkings stats and deciding what action it wants to do
 
 During the GOAPs path creating it needs context for the preconditions. (ChopTree -> HaveAxe & need a tree -> what tree?) This question for context will be asked by goap, through the action to the brain. Checking preConditions for ChopTree: HaveAxe & HaveLocation -> GOAP makes the action ask the brain if it has an axe and where it should go (nearest tree or something)
 
+A visual to hopefully explain the structure somewhat:
+![info](https://github.com/Wietsevdv/GOAP_Research/assets/99739337/a011dbdb-6f69-472d-88ba-d6e60612fee6)
+
