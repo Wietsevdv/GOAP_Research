@@ -50,6 +50,5 @@ I have a new base idea which I will be implementing. I am taking a "completely" 
 
 Brain will be capable of checkings stats and deciding what action it wants to do and asks GOAP to make a path. This means brain needs to be able to check preconditions. It would be handy if GOAP has access to the brains precondition checking function. Make the brain pass a function pointer to the GOAP at creation. This function takes a consequence (precondition) (and maybe data?)
 
-The GOAP needs context for preconditions to work. The question is how do I give it context? Some context will be "permanent" while others could be "changing". Example:
-AI wants to chop a tree. Precondition = ObtainAxe, context will always just be 1. Other precondition = HaveLocation, context is wherever a tree is, after chopping another one must be chosen.                    How do I give the GOAP access to this context so it can ask the brain if the precondition is satisfied? I will expand the action class. It will hold 
+During the GOAPs path creating it needs context for the preconditions. (ChopTree -> HaveAxe & need a tree -> what tree?) This question for context will be asked by goap, through the action to the brain. Checking preConditions for ChopTree: HaveAxe & HaveLocation -> GOAP makes the action ask the brain if it has an axe and where it should go (nearest tree or something)
 
