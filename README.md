@@ -13,6 +13,13 @@ My GOAP is about giving the AI a 'Goal or Purpose' and 'Actions' which it can pe
 The AI creates a path of actions to satisfy its goal. This path is created by looking at the actions consequences and preconditions. Making sure each action
 can be performed by finding other actions that satisfy its precondition. (last actions consequence == goal)
 
+## Other approach:
+Let preconditions and consequences be a pair: a pointer to some data & value that data should have. (Each is its own pair) (Consequence enumeration wouldn't exist anymore)
+The pointers are stuck to a specific peace of data of the character. This means actions can not be static anymore and must be instanced.
+example:
+c1 is given an action "ChopTree" this action takes c1 and takes a pointer to where c1 would store axeData. When this action is used the precondition states that his axe data must be valid.
+This approach also has problems such as instanced actions and the pointer data and comparing it will also not be easy
+
 # Difficulties: Consequences, Purpose & context for actions/consequences
 The main idea of GOAP is simple. The biggest problem for implementation is how do we define these "Goals, Preconditions and Consequences" that give meaning to actions.
 
@@ -31,13 +38,6 @@ But I see another problem with this. I'll explain through example:
 take character c1. c1 needs to chop a tree. This requires c1 to match consequence "ObtainAxe" Context = 1. This means GOAP needs to check this precondition on c1. GOAP would need to ask c1 if he has 1 axe. Code wise this requires some "GetNrOfAxes(), HasAxes(1)..." kind of function.
 
 This becomes a problem when you have many consequences. Each consequence would need some code to get values & compare them. Though I can't think of a better solution right now so I'll be using this method.
-
-## Other approach:
-Let preconditions and consequences be a pair: a pointer to some data & value that data should have. (Each is its own pair) (Consequence enumeration wouldn't exist anymore)
-The pointers are stuck to a specific peace of data of the character. This means actions can not be static anymore and must be instanced.
-example:
-c1 is given an action "ChopTree" this action takes c1 and takes a pointer to where c1 would store axeData. When this action is used the precondition states that his axe data must be valid.
-This approach also has problems such as instanced actions and the pointer data and comparing it will also not be easy
 
 ## Trouble
 Today I should finish this research. But I have come to realize that using static actions & purpose might not be good. I need to carry data over to both preconditions & actions to chain them execute them properly
