@@ -13,13 +13,6 @@ My GOAP is about giving the AI a 'Goal or Purpose' and 'Actions' which it can pe
 The AI creates a path of actions to satisfy its goal. This path is created by looking at the actions consequences and preconditions. Making sure each action
 can be performed by finding other actions that satisfy its precondition. (last actions consequence == goal)
 
-## Other approach:
-Let preconditions and consequences be a pair: a pointer to some data & value that data should have. (Each is its own pair) (Consequence enumeration wouldn't exist anymore)
-The pointers are stuck to a specific peace of data of the character. This means actions can not be static anymore and must be instanced.
-example:
-c1 is given an action "ChopTree" this action takes c1 and takes a pointer to where c1 would store axeData. When this action is used the precondition states that his axe data must be valid.
-This approach also has problems such as instanced actions and the pointer data and comparing it will also not be easy
-
 # Difficulties: Consequences, Purpose & context for actions/consequences
 The main idea of GOAP is simple. The biggest problem for implementation is how do we define these "Goals, Preconditions and Consequences" that give meaning to actions.
 
