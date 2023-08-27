@@ -13,10 +13,6 @@ My GOAP is about giving the AI a 'Goal or Purpose' and 'Actions' which it can pe
 The AI creates a path of actions to satisfy its goal. This path is created by looking at the actions consequences and preconditions. Making sure each action
 can be performed by finding other actions that satisfy its precondition. (last actions consequence == goal)
 
-### Example:
-AI needs to kill enemy (Goal). It can use Shoot for this since it has consequence 'EnemyDies' (action). But this action requires his gun to
-be loaded (precondition). Assuming the enemy is already in sight the actionPath becomes: ReloadGun() -> Shoot()
-
 # Difficulties: Consequences, Purpose & context for actions/consequences
 The main idea of GOAP is simple. The biggest problem for implementation is how do we define these "Goals, Preconditions and Consequences" that give meaning to actions.
 
